@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe "Static pages" do
+  
+  let(:base_title) { "Бублег" }
 
   describe "Home page" do
 
@@ -9,9 +11,14 @@ describe "Static pages" do
       page.should have_selector('h1', :text => 'Sample App')
     end
     
-    it "Проверка титла 'Home'" do
+    it "Проверка базового титла" do
       visit '/static_pages/home'
-      page.should have_title("| Home")
+      page.should have_title("#{base_title}")
+    end
+    
+    it "Проверка отсутствия титла '| Home' титла" do
+      visit '/static_pages/home'
+      page.should_not have_title(" | Home")
     end
   end
   
@@ -23,7 +30,7 @@ describe "Static pages" do
     
     it "Проверка титла 'Help'" do
       visit '/static_pages/help'
-      page.should have_title("| Help")
+      page.should have_title("#{base_title} | Help")
     end
     
   end
@@ -36,7 +43,7 @@ describe "Static pages" do
     
     it "Проверка титла 'About Us'" do
       visit '/static_pages/about'
-      page.should have_title("| About Us")
+      page.should have_title("#{base_title} | About Us")
     end
   end
   
@@ -48,7 +55,7 @@ describe "Static pages" do
     
     it "Проверка титла 'Contact'" do
       visit '/static_pages/contact'
-      page.should have_title("| Contact")
+      page.should have_title("#{base_title} | Contact")
     end
   end
 end

@@ -2,17 +2,19 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'pg'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
-end
-
-
-group :production do
-  gem 'pg'
+  gem 'guard-rspec'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'guard-spork'
+  #gem 'spork'
+  gem 'spork-rails', :github => 'sporkrb/spork-rails'
+  gem 'rails-observers'
 end
 
 # Use SCSS for stylesheets
