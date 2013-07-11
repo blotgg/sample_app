@@ -39,4 +39,16 @@ describe "Static pages" do
       page.should have_title("| About Us")
     end
   end
+  
+  describe "Contact" do
+    it "Проверка контента на наличие 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_selector('h1', :text => 'Contact')
+    end
+    
+    it "Проверка титла 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_title("| Contact")
+    end
+  end
 end
