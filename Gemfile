@@ -8,6 +8,10 @@ gem 'pg'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+group :prodaction do
+  gem "rails_12factor"
+end
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'annotate'
