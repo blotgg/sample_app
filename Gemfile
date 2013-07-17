@@ -18,6 +18,7 @@ group :development, :test do
   #gem 'spork'
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'rails-observers'
+  gem 'factory_girl_rails'
 end
 
 # Use SCSS for stylesheets
