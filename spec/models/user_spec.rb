@@ -22,10 +22,16 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   
   it { should respond_to(:authenticate) }
   
   #it { should_not be_valid } #надо добавить строг параметр, тогда все должно заработать
+  
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
   
   describe "return value of authenticate method" do
     before { @user.save }
@@ -41,9 +47,7 @@ describe User do
       it { should_not == user_for_invalid_password }
       specify { user_for_invalid_password.should be_false }
     end
-  end
-  
-  
+  end 
   
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
