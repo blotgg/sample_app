@@ -7,6 +7,9 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :prodaction do
   gem "rails_12factor"
