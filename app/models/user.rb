@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   #attr_accessible :name, :email
   
   has_secure_password
+  has_many :microposts, dependent: :destroy #dependent: :destroy - означает удалять связанные сообщения при удалении юзера
   
   #before_save { |user| user.email = email.downcase } #альтерантива этой колбэк функции:
   before_save { email.downcase! }
@@ -25,7 +26,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  
+  def feed
+    # Это предварительное решение. См. полную реализацию в "Following users".
+    Micropost.where("user_id = ?", id)
+  end
   
   private
 
